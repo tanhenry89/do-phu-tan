@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Nghe Nhạc Online</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header>
+      <h1>Web Nghe Nhạc Online</h1>
+      <p>Chọn bài hát hoặc kéo thả tập tin audio để phát ngay.</p>
+    </header>
+
+    <section class="player-card">
+      <div class="current-track">
+        <strong>Bài hát hiện tại:</strong>
+        <div id="track-name">Chưa có bài nào</div>
+      </div>
+
+      <audio id="audio-player" controls preload="metadata">
+        <source id="audio-source" src="" type="audio/mpeg" />
+        Trình duyệt của bạn không hỗ trợ thẻ audio.
+      </audio>
+
+      <div class="actions">
+        <label class="button" for="file-input">Chọn tệp audio</label>
+        <input id="file-input" type="file" accept="audio/*" />
+      </div>
+      <div class="drop-zone" id="drop-zone">
+        Kéo thả tệp audio vào đây
+      </div>
+    </section>
+
+    <section class="playlist-card">
+      <h2>Danh sách bài hát từ database</h2>
+      <ul id="playlist"></ul>
+    </section>
+
+    <section class="playlist-card">
+      <h2>Thêm bài hát mới</h2>
+      <form id="new-track-form">
+        <label for="track-name-input">Tên bài hát</label>
+        <input id="track-name-input" type="text" placeholder="Nhập tên bài hát" required />
+
+        <label for="track-src-input">Đường dẫn MP3</label>
+        <input id="track-src-input" type="url" placeholder="https://..." required />
+
+        <button class="button" type="submit">Thêm vào database</button>
+      </form>
+      <div id="form-message" class="form-message" aria-live="polite"></div>
+      <p class="hint">Nhập URL MP3 trực tuyến (*.mp3) để lưu vào cơ sở dữ liệu và phát ngay.</p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
